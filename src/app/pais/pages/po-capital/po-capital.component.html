@@ -1,0 +1,21 @@
+<h3>CAPITAL</h3>
+<hr>
+<div class="row">
+    <div class="col">
+        <!-- captura el valor del output -->
+     <app-buscar-pais (onEnter)="buscar($event)"
+                        (onDebounce)="sugerencias($event)"
+                        placeholder="Buscar Capital"></app-buscar-pais>
+    </div>
+</div>
+<hr>
+<!-- Alerta de error -->
+<div class="alert alert-danger" *ngIf="error">
+    No se encontro nada con el termino
+</div>
+<div class="row" *ngIf="paises.length > 0">
+    <div class="col">
+        <!-- les manda ya los paises que se retornan -->
+        <app-tabla-pais [paises]="paises"></app-tabla-pais>
+    </div>
+</div>
